@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import SunEditor, { buttonList } from "suneditor-react";
+import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 
-function App() {
+export default function App() {
+  // Remove the se-component class from
+  // contents fixes this error
+  const contents =
+    '<p><br /></p><div class="se-component se-image-container __se__float-none">  </div><p><br /></p>';
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SunEditor
+        setOptions={{ buttonList: buttonList.complex }}
+        setContents={contents}
+      />
     </div>
   );
 }
-
-export default App;
